@@ -7,6 +7,7 @@
 namespace Humdir\Core\Usecase\Company;
 use Humdir\Core\Usecase\Company\Add\Interactor;
 use Humdir\Core\Usecase\Company\Add\Submission;
+use Humdir\Core\Usecase;
 
 class Add
 {
@@ -24,7 +25,8 @@ class Add
     public function fetch()
     {
         return new Interactor(
-            $this->get_submission()
+            $this->get_submission(),
+            $this->get_company_prepare()
         );
     }
 
@@ -32,8 +34,15 @@ class Add
     {
         return new Submission(
             $this->data['company'],
-            $this->repositories['company_add'],
-            $this->tools['validator']
+            $this->repositories['company_add']
+        );
+    }
+
+    private function get_company_prepare()
+    {
+        return new Usecase\Company\Prepare(
+            ['company' => $this->data['company']],
+            ['validator' => $this->tools['validator']]
         );
     }
 }

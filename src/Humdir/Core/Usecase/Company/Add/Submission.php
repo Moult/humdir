@@ -18,9 +18,8 @@ class Submission extends Data\Company
     public $email;
     public $contact_method;
     private $repository;
-    private $validator;
 
-    public function __construct(Data\Company $company, Repository $repository, Tool\Validator $validator)
+    public function __construct(Data\Company $company, Repository $repository)
     {
         $this->name = $company->name;
         $this->department = $company->department;
@@ -29,23 +28,6 @@ class Submission extends Data\Company
         $this->email = $company->email;
         $this->contact_method = $company->contact_method;
         $this->repository = $repository;
-        $this->validator = $validator;
-    }
-
-    public function validate()
-    {
-        $this->validator->setup(array(
-            'name' => $this->name,
-            'website' => $this->website,
-            'email' => $this->email
-        ));
-        $this->validator->rule('name', 'not_empty');
-        $this->validator->rule('website', 'url');
-        $this->validator->rule('email', 'email');
-        $this->validator->rule('email', 'email_domain');
-
-        if ( ! $this->validator->check())
-            throw new Exception\Validation($this->validator->errors());
     }
 
     public function submit()
