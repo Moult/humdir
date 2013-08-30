@@ -4,6 +4,6 @@
  * Full license text in LICENSE file
  */
 
-namespace VLibrary\Core\Exception;
+namespace Humdir\Core\Exception;
 
 class Authorisation extends \Exception {}
