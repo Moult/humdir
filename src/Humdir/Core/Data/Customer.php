@@ -8,6 +8,7 @@ namespace Humdir\Core\Data;
 
 class Customer
 {
+    public $id;
     public $name;
     /**
      * @var Data\Company

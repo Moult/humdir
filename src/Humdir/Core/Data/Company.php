@@ -8,6 +8,7 @@ namespace Humdir\Core\Data;
 
 class Company
 {
+    public $id;
     public $name;
     public $department;
     public $website;

@@ -12,6 +12,11 @@ class CustomerSpec extends ObjectBehavior
         $this->shouldHaveType('Humdir\Core\Data\Customer');
     }
 
+    function it_has_an_id()
+    {
+        $this->id->shouldBe(NULL);
+    }
+
     function it_has_a_name()
     {
         $this->name->shouldBe(NULL);
