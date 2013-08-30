@@ -9,19 +9,24 @@ class PrepareSpec extends ObjectBehavior
 {
     /**
      * @param Humdir\Core\Data\Customer $customer
+     * @param Humdir\Core\Usecase\Customer\Prepare\Repository $customer_prepare
      * @param Humdir\Core\Tool\Validator $validator
      */
-    function let($customer, $validator)
+    function let($customer, $customer_prepare, $validator)
     {
         $data = array(
             'customer' => $customer
+        );
+
+        $repositories = array(
+            'customer_prepare' => $customer_prepare
         );
 
         $tools = array(
             'validator' => $validator
         );
 
-        $this->beConstructedWith($data, $tools);
+        $this->beConstructedWith($data, $repositories, $tools);
     }
 
     function it_is_initializable()

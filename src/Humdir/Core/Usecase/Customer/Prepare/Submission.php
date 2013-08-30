@@ -13,12 +13,14 @@ class Submission extends Data\Customer
 {
     public $name;
     public $company;
+    private $repository;
     private $validator;
 
-    public function __construct(Data\Customer $customer, Tool\Validator $validator)
+    public function __construct(Data\Customer $customer, Repository $repository, Tool\Validator $validator)
     {
         $this->name = $customer->name;
         $this->company = $customer->company;
+        $this->repository = $repository;
         $this->validator = $validator;
     }
 
@@ -33,5 +35,10 @@ class Submission extends Data\Customer
 
         if ( ! $this->validator->check())
             throw new Exception\Validation($this->validator->errors());
+    }
+
+    public function is_an_existing_company_id($id)
+    {
+        return $this->repository->does_company_exist($id);
     }
 }

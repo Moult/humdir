@@ -13,9 +13,10 @@ class Prepare
     private $data;
     private $tools;
 
-    public function __construct(array $data, array $tools)
+    public function __construct(array $data, array $repositories, array $tools)
     {
         $this->data = $data;
+        $this->repositories = $repositories;
         $this->tools = $tools;
     }
 
@@ -30,6 +31,7 @@ class Prepare
     {
         return new Submission(
             $this->data['customer'],
+            $this->repositories['customer_prepare'],
             $this->tools['validator']
         );
     }
