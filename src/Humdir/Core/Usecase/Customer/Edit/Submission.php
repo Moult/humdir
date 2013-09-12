@@ -12,6 +12,7 @@ class Submission extends Data\Customer
     public $id;
     public $name;
     public $company;
+    public $project;
     public $referral;
     public $last_contacted;
     private $repository;
@@ -21,6 +22,7 @@ class Submission extends Data\Customer
         $this->id = $customer->id;
         $this->name = $customer->name;
         $this->company = $customer->company;
+        $this->project = $customer->project;
         $this->referral = $customer->referral;
         $this->last_contacted = $customer->last_contacted;
         $this->repository = $repository;
@@ -33,7 +35,11 @@ class Submission extends Data\Customer
             $this->name,
             $this->company,
             $this->referral,
-            $this->last_contacted
+            $this->last_contacted,
+            $this->project->requirements,
+            $this->project->proposal,
+            $this->project->response,
+            $this->project->notes
         );
     }
 }
