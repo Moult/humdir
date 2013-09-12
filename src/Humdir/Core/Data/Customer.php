@@ -14,6 +14,10 @@ class Customer
      * @var Data\Company
      */
     public $company;
+    /**
+     * @var Data\Project
+     */
+    public $project;
     public $referral;
     public $last_contacted;
 }

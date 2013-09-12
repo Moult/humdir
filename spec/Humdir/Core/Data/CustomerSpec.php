@@ -27,6 +27,11 @@ class CustomerSpec extends ObjectBehavior
         $this->company->shouldBe(NULL);
     }
 
+    function it_has_a_project()
+    {
+        $this->project->shouldBe(NULL);
+    }
+
     function it_has_a_referral()
     {
         $this->referral->shouldBe(NULL);
