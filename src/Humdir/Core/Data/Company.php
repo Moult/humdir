@@ -14,5 +14,6 @@ class Company
     public $website;
     public $phone_number;
     public $email;
+    public $address;
     public $contact_method;
 }

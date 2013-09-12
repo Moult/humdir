@@ -16,6 +16,7 @@ class Submission extends Data\Company
     public $website;
     public $phone_number;
     public $email;
+    public $address;
     public $contact_method;
     private $repository;
 
@@ -26,6 +27,7 @@ class Submission extends Data\Company
         $this->website = $company->website;
         $this->phone_number = $company->phone_number;
         $this->email = $company->email;
+        $this->address = $company->address;
         $this->contact_method = $company->contact_method;
         $this->repository = $repository;
     }
@@ -38,6 +40,7 @@ class Submission extends Data\Company
             $this->website,
             $this->phone_number,
             $this->email,
+            $this->address,
             $this->contact_method
         );
     }

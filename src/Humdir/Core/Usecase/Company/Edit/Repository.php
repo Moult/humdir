@@ -8,5 +8,5 @@ namespace Humdir\Core\Usecase\Company\Edit;
 
 interface Repository
 {
-    public function update_company($id, $name, $department, $website, $phone_number, $email, $contact_method);
+    public function update_company($id, $name, $department, $website, $phone_number, $email, $address, $contact_method);
 }

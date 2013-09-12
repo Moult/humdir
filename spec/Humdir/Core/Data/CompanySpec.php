@@ -42,6 +42,11 @@ class CompanySpec extends ObjectBehavior
         $this->email->shouldBe(NULL);
     }
 
+    function it_has_an_address()
+    {
+        $this->address->shouldBe(NULL);
+    }
+
     function it_has_a_contact_method()
     {
         $this->contact_method->shouldBe(NULL);

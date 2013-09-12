@@ -18,6 +18,7 @@ class SubmissionSpec extends ObjectBehavior
         $company->website = 'website';
         $company->phone_number = 'phone_number';
         $company->email = 'email';
+        $company->address = 'address';
         $company->contact_method = 'contact_method';
         $this->beConstructedWith($company, $repository);
     }
@@ -34,7 +35,7 @@ class SubmissionSpec extends ObjectBehavior
 
     function it_submits_the_submission($repository)
     {
-        $repository->add_company('name', 'department', 'website', 'phone_number', 'email', 'contact_method')->shouldBeCalled();
+        $repository->add_company('name', 'department', 'website', 'phone_number', 'email', 'address', 'contact_method')->shouldBeCalled();
         $this->submit();
     }
 }
