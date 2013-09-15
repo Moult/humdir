@@ -35,7 +35,7 @@ class SubmissionSpec extends ObjectBehavior
 
     function it_submits_the_submission($repository)
     {
-        $repository->add_company('name', 'department', 'website', 'phone_number', 'email', 'address', 'contact_method')->shouldBeCalled();
-        $this->submit();
+        $repository->add_company('name', 'department', 'website', 'phone_number', 'email', 'address', 'contact_method')->shouldBeCalled()->willReturn('id');
+        $this->submit()->shouldReturn('id');
     }
 }

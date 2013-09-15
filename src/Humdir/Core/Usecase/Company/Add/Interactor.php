@@ -21,6 +21,6 @@ class Interactor
     public function interact()
     {
         $this->company_prepare->fetch()->interact();
-        $this->submission->submit();
+        return $this->submission->submit();
     }
 }

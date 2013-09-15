@@ -28,7 +28,7 @@ class InteractorSpec extends ObjectBehavior
     {
         $company_prepare->fetch()->shouldBeCalled()->willReturn($interactor);
         $interactor->interact()->shouldBeCalled();
-        $submission->submit()->shouldBeCalled();
-        $this->interact();
+        $submission->submit()->shouldBeCalled()->willReturn('id');
+        $this->interact()->shouldReturn('id');
     }
 }
