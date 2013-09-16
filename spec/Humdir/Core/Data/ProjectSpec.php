@@ -36,4 +36,9 @@ class ProjectSpec extends ObjectBehavior
     {
         $this->notes->shouldBe(NULL);
     }
+
+    function it_belongs_to_a_category()
+    {
+        $this->category->shouldBe(NULL);
+    }
 }

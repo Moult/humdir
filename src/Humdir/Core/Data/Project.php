@@ -13,4 +13,5 @@ class Project
     public $proposal;
     public $response;
     public $notes;
+    public $category;
 }

@@ -39,7 +39,8 @@ class Submission extends Data\Customer
             $this->project->requirements,
             $this->project->proposal,
             $this->project->response,
-            $this->project->notes
+            $this->project->notes,
+            $this->project->category
         );
     }
 }

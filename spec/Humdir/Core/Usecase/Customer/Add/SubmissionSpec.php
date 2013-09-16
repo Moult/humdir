@@ -22,6 +22,7 @@ class SubmissionSpec extends ObjectBehavior
         $project->proposal = 'proposal';
         $project->response = 'response';
         $project->notes = 'notes';
+        $project->category = 'category';
         $customer->project = $project;
         $this->beConstructedWith($customer, $repository);
     }
@@ -38,7 +39,7 @@ class SubmissionSpec extends ObjectBehavior
 
     function it_can_save_the_submission($repository)
     {
-        $repository->save_customer('name', 'company', 'referral', 'last_contacted', 'requirements', 'proposal', 'response', 'notes')->shouldBeCalled();
+        $repository->save_customer('name', 'company', 'referral', 'last_contacted', 'requirements', 'proposal', 'response', 'notes', 'category')->shouldBeCalled();
         $this->save();
     }
 }
