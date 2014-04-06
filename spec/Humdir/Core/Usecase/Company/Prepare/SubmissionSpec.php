@@ -14,7 +14,6 @@ class SubmissionSpec extends ObjectBehavior
     function let($company, $validator)
     {
         $company->name = 'name';
-        $company->website = 'website';
         $company->email = 'email';
         $this->beConstructedWith($company, $validator);
     }
@@ -33,15 +32,13 @@ class SubmissionSpec extends ObjectBehavior
     {
         $validator->setup(array(
             'name' => 'name',
-            'website' => 'website',
             'email' => 'email',
         ))->shouldBeCalled();
-        $validator->rule('name', 'not_empty')->shouldBeCalled();
-        $validator->rule('website', 'url')->shouldBeCalled();
-        $validator->rule('email', 'email')->shouldBeCalled();
-        $validator->rule('email', 'email_domain')->shouldBeCalled();
-        $validator->check()->shouldBeCalled()->willReturn(FALSE);
-        $validator->errors()->shouldBeCalled()->willReturn(array());
+        $validator->add_required_rule('name')->shouldBeCalled();
+        $validator->add_email_rule('email')->shouldBeCalled();
+        $validator->add_email_domain_rule('email')->shouldBeCalled();
+        $validator->is_valid()->shouldBeCalled()->willReturn(FALSE);
+        $validator->get_error_keys()->shouldBeCalled()->willReturn(array());
         $this->shouldThrow('Humdir\Core\Exception\Validation')->duringValidate();
     }
 }

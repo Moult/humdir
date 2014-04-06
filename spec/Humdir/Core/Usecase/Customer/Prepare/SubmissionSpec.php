@@ -35,10 +35,10 @@ class SubmissionSpec extends ObjectBehavior
             'name' => 'name',
             'company' => 'company'
         ))->shouldBeCalled();
-        $validator->rule('name', 'not_empty')->shouldBeCalled();
-        $validator->callback('company', array($this, 'is_an_existing_company_id'), array('company'))->shouldBeCalled();
-        $validator->check()->shouldBeCalled()->willReturn(FALSE);
-        $validator->errors()->shouldBeCalled()->willReturn(array());
+        $validator->add_required_rule('name')->shouldBeCalled();
+        $validator->add_callback('company', array($this, 'is_an_existing_company_id'), array('company'))->shouldBeCalled();
+        $validator->is_valid()->shouldBeCalled()->willReturn(FALSE);
+        $validator->get_error_keys()->shouldBeCalled()->willReturn(array());
         $this->shouldThrow('Humdir\Core\Exception\Validation')->duringValidate();
     }
 

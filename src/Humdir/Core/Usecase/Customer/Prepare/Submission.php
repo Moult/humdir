@@ -30,11 +30,11 @@ class Submission extends Data\Customer
             'name' => $this->name,
             'company' => $this->company
         ));
-        $this->validator->rule('name', 'not_empty');
-        $this->validator->callback('company', array($this, 'is_an_existing_company_id'), array('company'));
+        $this->validator->add_required_rule('name');
+        $this->validator->add_callback('company', array($this, 'is_an_existing_company_id'), array('company'));
 
-        if ( ! $this->validator->check())
-            throw new Exception\Validation($this->validator->errors());
+        if ( ! $this->validator->is_valid())
+            throw new Exception\Validation($this->validator->get_error_keys());
     }
 
     public function is_an_existing_company_id($id)
