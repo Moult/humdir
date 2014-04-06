@@ -34,7 +34,7 @@ class Submission extends Data\Company
 
     public function submit()
     {
-        $this->repository->add_company(
+        return $this->repository->add_company(
             $this->name,
             $this->department,
             $this->website,
